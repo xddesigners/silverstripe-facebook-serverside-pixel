@@ -4,9 +4,9 @@ name: facebookserversidepixel
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - XD\SilverStripeFacebookServerSidePixel\Extensions\SiteTreeExtension
-SilverShop\Model\Order:
-  extensions:
-    - XD\SilverStripeFacebookServerSidePixel\Extensions\OrderExtension
-SilverShop\Page\CheckoutPage:
-  extensions:
-    - XD\SilverStripeFacebookServerSidePixel\Extensions\CheckoutPageExtension
+# SilverShop\Model\Order:
+#   extensions:
+#     - XD\SilverStripeFacebookServerSidePixel\Extensions\OrderExtension
+# SilverShop\Page\CheckoutPage:
+#   extensions:
+#     - XD\SilverStripeFacebookServerSidePixel\Extensions\CheckoutPageExtension

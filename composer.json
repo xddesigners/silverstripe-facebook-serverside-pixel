@@ -1,0 +1,22 @@
+{
+    "name": "xddesigners/silverstripe-facebook-serverside-pixel",
+    "description": "Serverside pixel implementation for use with silverstripe (and SilverShop) ",
+    "type": "silverstripe-vendormodule",
+    "keywords": ["SilverStripe", "Facebook", "ServerSide", "Pixel"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Bram de Leeuw",
+            "email": "bram@xd.nl"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": ">=4.0",
+        "facebook/php-business-sdk": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "XD\\SilverStripeFacebookServerSidePixel\\": "src"
+        }
+    }
+}

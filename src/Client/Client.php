@@ -4,9 +4,6 @@ namespace XD\SilverStripeFacebookServerSidePixel\Client;
 
 use Exception;
 use FacebookAds\Api;
-use FacebookAds\Http\Exception\AuthorizationException;
-use FacebookAds\Logger\CurlLogger;
-use FacebookAds\Logger\NullLogger;
 use FacebookAds\Object\ServerSide\ActionSource;
 use FacebookAds\Object\ServerSide\CustomData;
 use FacebookAds\Object\ServerSide\EventRequest;
@@ -82,7 +79,7 @@ class Client
 
         try {
             $request = (new EventRequest($pixelId, $data))
-            ->setEvents($this->events);
+                ->setEvents($this->events);
 
             // Execute the request
             $response = $request->execute();

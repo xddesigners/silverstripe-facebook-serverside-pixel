@@ -46,7 +46,7 @@ class Client
     /**
      * Add events to send
      */
-    public function addEvent($name, UserData $userData = null, CustomData $customData = null)
+    public function createEvent($name, UserData $userData = null, CustomData $customData = null)
     {
         $controller = Controller::curr();
         $req = $controller->getRequest();
@@ -59,6 +59,11 @@ class Client
             ->setCustomData($customData)
             ->setActionSource(ActionSource::WEBSITE);
 
+        return $event;
+    }
+
+    public function addEvent(Event $event)
+    {
         array_push($this->events, $event);
         return $this;
     }
@@ -133,7 +138,8 @@ class Client
     public function sendPageViewEvent()
     {
         $userData = $this->createUserData();
-        return $this->addEvent('PageView', $userData)->sendEvents();
+        $event = $this->createEvent('PageView', $userData);
+        return $this->addEvent($event)->sendEvents();
     }
 
     /**
@@ -145,8 +151,9 @@ class Client
         if (!$userData) {
             $userData = $this->createUserData();
         }
-
-        return $this->addEvent('Purchase', $userData, $customData)->sendEvents();
+        
+        $event = $this->createEvent('Purchase', $userData, $customData);
+        return $this->addEvent($event)->sendEvents();
     }
 
     /**
@@ -159,7 +166,8 @@ class Client
             $userData = $this->createUserData();
         }
 
-        return $this->addEvent('InitiateCheckout', $userData, $customData)->sendEvents();
+        $event = $this->createEvent('InitiateCheckout', $userData, $customData);
+        return $this->addEvent($event)->sendEvents();
     }
 
     /**
@@ -172,6 +180,7 @@ class Client
             $userData = $this->createUserData();
         }
 
-        return $this->addEvent('AddToCart', $userData, $customData)->sendEvents();
+        $event = $this->createEvent('AddToCart', $userData, $customData);
+        return $this->addEvent($event)->sendEvents();
     }
 }

@@ -50,7 +50,7 @@ class Client
     {
         $controller = Controller::curr();
         $req = $controller->getRequest();
-        $sourceUrl = Director::absoluteURL($req->getURL());
+        $sourceUrl = Director::absoluteURL($_SERVER['REQUEST_URI']);
         $event = (new Event())
             ->setEventName($name)
             ->setEventTime(time())

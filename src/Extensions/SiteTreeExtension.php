@@ -2,6 +2,7 @@
 
 namespace XD\SilverStripeFacebookServerSidePixel\Extensions;
 
+use SilverStripe\Control\Director;
 use SilverStripe\Core\Extension;
 use XD\SilverStripeFacebookServerSidePixel\Client\Client;
 

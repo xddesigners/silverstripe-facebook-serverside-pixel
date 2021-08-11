@@ -9,6 +9,10 @@ class SiteTreeExtension extends Extension
 {
     public function contentcontrollerInit()
     {
+        if (Director::is_ajax()) {
+            return;
+        }
+        
         $facebookClient = new Client();
         $facebookClient->sendPageViewEvent();
     }

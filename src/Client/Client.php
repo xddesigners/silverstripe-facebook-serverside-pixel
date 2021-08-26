@@ -23,7 +23,7 @@ class Client
     use Configurable;
     use Injectable;
     use Extensible;
-    
+
     private static $send_member_data = false;
 
     protected $events = [];
@@ -51,6 +51,7 @@ class Client
         $controller = Controller::curr();
         $req = $controller->getRequest();
         $sourceUrl = Director::absoluteURL($_SERVER['REQUEST_URI']);
+
         $event = (new Event())
             ->setEventName($name)
             ->setEventTime(time())
@@ -58,6 +59,10 @@ class Client
             ->setUserData($userData)
             ->setCustomData($customData)
             ->setActionSource(ActionSource::WEBSITE);
+
+        if (isset($_SESSION['EVENTID']) && $event_id = $_SESSION['EVENTID']) {
+            $event->setEventId($event_id);
+        }
 
         return $event;
     }
@@ -151,7 +156,7 @@ class Client
         if (!$userData) {
             $userData = $this->createUserData();
         }
-        
+
         $event = $this->createEvent('Purchase', $userData, $customData);
         return $this->addEvent($event)->sendEvents();
     }

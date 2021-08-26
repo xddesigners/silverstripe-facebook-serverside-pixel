@@ -63,3 +63,12 @@ $client
     ->addEvent('MyCustomEvent', $userData, $customData)
     ->sendEvents();
 ```
+
+## Support for FB Event IDs
+add to index.php:
+```php
+session_start();
+$event_id = sha1(session_id() . '_' . uniqid() );
+setcookie('EVENTID',$event_id);
+$_SESSION['EVENTID'] = $event_id;
+```

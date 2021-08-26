@@ -20,19 +20,19 @@ use XD\SilverStripeFacebookServerSidePixel\Client\Client;
  */
 class OrderExtension extends DataExtension
 {
-    // public function onPaid()
-    // {
-        // order is not set to paid when this part is enabled
-        // $facebookClient = new Client();
-        // $cart = $this->owner->toFacebookContent();
-        
-        // $userData = $facebookClient->createUserData();
-        // $userData->setEmail($this->owner->getLatestEmail());
-        // $userData->setFirstName($this->owner->FirstName);
-        // $userData->setLastName($this->owner->Surname);
-
-        // $facebookClient->sendPurchaseEvent($cart, $userData);
-    // }
+//     public function onPaid()
+//     {
+//         // order is not set to paid when this part is enabled
+//         $facebookClient = new Client();
+//         $cart = $this->owner->toFacebookContent();
+//
+//         $userData = $facebookClient->createUserData();
+//         $userData->setEmail($this->owner->Email);
+//         $userData->setFirstName($this->owner->FirstName);
+//         $userData->setLastName($this->owner->Surname);
+//
+//         $facebookClient->sendPurchaseEvent($cart, $userData);
+//     }
 
     public function afterAdd($item, $buyable, $quantity, $filter)
     {

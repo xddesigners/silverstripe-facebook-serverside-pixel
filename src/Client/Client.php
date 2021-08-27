@@ -40,7 +40,7 @@ class Client
             return false;
         }
 
-        Api::init(null, null, $accessToken);
+        Api::init(null, null, $accessToken, false);
     }
 
     /**

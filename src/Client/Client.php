@@ -61,7 +61,8 @@ class Client
             ->setActionSource(ActionSource::WEBSITE);
 
         if (isset($_SESSION['EVENTID']) && $event_id = $_SESSION['EVENTID']) {
-            $event->setEventId($event_id);
+            // combine eventname with eventid for unique id
+            $event->setEventId(strtolower($name) . '-' . $event_id);
         }
 
         return $event;

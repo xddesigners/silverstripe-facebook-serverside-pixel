@@ -13,8 +13,11 @@ class SiteTreeExtension extends Extension
         if (Director::is_ajax()) {
             return;
         }
-        
-        $facebookClient = new Client();
-        $facebookClient->sendPageViewEvent();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $facebookClient = new Client();
+            $facebookClient->sendPageViewEvent();
+        }
+
     }
 }

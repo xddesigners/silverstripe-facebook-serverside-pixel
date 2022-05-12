@@ -65,7 +65,7 @@ class OrderExtension extends DataExtension
         if( empty($this->owner->Fbp) && $fbp = Cookie::get('_fbp') ) {
             $this->owner->Fbp = $fbp;
         }
-        if( empty($this->owner->Fbc) && $fbp = Cookie::get('_fbc') ) {
+        if( empty($this->owner->Fbc) && $fbc = Cookie::get('_fbc') ) {
             $this->owner->Fbc = $fbc;
         }
     }

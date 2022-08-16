@@ -170,6 +170,16 @@ class Client
     }
 
     /**
+     * View ecommerce content event
+     */
+    public function sendViewContentEvent()
+    {
+        $userData = $this->createUserData();
+        $event = $this->createEvent('ViewContent', $userData);
+        return $this->addEvent($event)->sendEvents();
+    }
+
+    /**
      * Default purchase event
      * Pass the bought items trough the customData prop
      */

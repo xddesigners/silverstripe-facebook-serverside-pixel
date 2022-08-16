@@ -26,6 +26,11 @@ class Client
 
     private static $send_member_data = false;
 
+    /**
+     * set this to false when using static publish
+     */
+    private static $create_event_id = true;
+
     protected $events = [];
 
     /**
@@ -41,6 +46,22 @@ class Client
         }
 
         Api::init(null, null, $accessToken, false);
+    }
+
+    /**
+     * Create an event id and store it in session and cookie
+     * Can be called in index.php if using a static publisher
+     */
+    public function createEventId($startSession = false)
+    {
+        if ($startSession) {
+            session_start();
+        }
+
+        $event_id = sha1(session_id() . '_' . uniqid());
+        setcookie('EVENTID', $event_id);
+        $_SESSION['EVENTID'] = $event_id;
+    
     }
 
     /**

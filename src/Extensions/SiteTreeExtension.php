@@ -14,10 +14,16 @@ class SiteTreeExtension extends Extension
             return;
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $facebookClient = new Client();
-            $facebookClient->sendPageViewEvent();
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return;
         }
 
+        $facebookClient = new Client();
+        
+        if (Client::config()->get('create_event_id')) {
+            $facebookClient->createEventId();
+        }
+        
+        $facebookClient->sendPageViewEvent();
     }
 }

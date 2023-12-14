@@ -17,6 +17,7 @@ use SilverStripe\Core\Environment;
 use SilverStripe\Core\Extensible;
 use SilverStripe\Core\Injector\Injectable;
 use SilverStripe\Security\Security;
+use SilverStripe\ErrorPage\ErrorPageController;
 
 class Client
 {
@@ -54,6 +55,9 @@ class Client
      */
     public function createEventId($startSession = false)
     {
+        $contr = Controller::curr();
+        if (get_class($contr) == ErrorPageController::class) return;
+        
         if ($startSession) {
             session_start();
         }
